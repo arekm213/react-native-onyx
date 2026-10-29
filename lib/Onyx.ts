@@ -491,7 +491,7 @@ function clear(keysToPreserve: OnyxKey[] = []): Promise<void> {
                         //      since collection key subscribers need to be updated differently
                         if (!isKeyToPreserve) {
                             const oldValue = cache.get(key);
-                            const newValue = defaultKeyStates[key] ?? null;
+                            const newValue = OnyxUtils.getNullFreeDefaultKeyState(key);
                             if (newValue !== oldValue) {
                                 cache.set(key, newValue);
 
